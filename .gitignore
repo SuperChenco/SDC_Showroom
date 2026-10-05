@@ -1,0 +1,11 @@
+# Local tooling and generated previews
+.playwright-cli/
+showroom-after-dimensions.png
+exterior-visualizer/
+Photos/
+
+# Keep only web-ready, generated product assets; ignore original source library
+Pattens/*
+!Pattens/_sourceTiles/
+!Pattens/_thumbs/
+Pattens/_tiles/
