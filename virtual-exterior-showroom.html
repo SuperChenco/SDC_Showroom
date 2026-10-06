@@ -94,11 +94,10 @@ function makeMaterial(product){
   if(materialCache.has(product.id))return materialCache.get(product.id);
   const texture=textureLoader.load(product.url,undefined,undefined,error=>console.error('花色图片加载失败:',product.url,error));
   texture.colorSpace=THREE.SRGBColorSpace;texture.wrapS=THREE.RepeatWrapping;texture.wrapT=THREE.RepeatWrapping;
-  // Detail scale 2 halves the visual size of each source pattern while keeping
-  // the physical board joints unchanged. Each 3030 mm board now shows six
-  // source repeats; vertical material detail is doubled as well.
-  const MATERIAL_DETAIL_SCALE=2;
-  texture.repeat.set(MATERIAL_DETAIL_SCALE/SOURCE_TILE_LENGTH_M,MATERIAL_DETAIL_SCALE/BOARD_COURSE_M);texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+  // Keep texture scale matched to the real module: one 1010 mm source tile
+  // per 1.010 m horizontally and one 455 mm course vertically. That gives
+  // exactly 3 texture tiles along each 3030 mm board, with no extra courses.
+  texture.repeat.set(1/SOURCE_TILE_LENGTH_M,1/BOARD_COURSE_M);texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
   const material=new THREE.MeshStandardMaterial({color:'#ffffff',map:texture,roughness:.8,metalness:.015});
   material.userData.productId=product.id;materialCache.set(product.id,material);return material;
 }
