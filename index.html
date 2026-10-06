@@ -15,7 +15,7 @@
   .view-label{border:1px solid #ffffffad;background:#f8faf9c9;padding:10px 14px;font-size:10px;letter-spacing:1.3px;color:#4d5b64;backdrop-filter:blur(12px)}
   .panel{position:fixed;z-index:3;right:26px;top:84px;bottom:24px;width:328px;background:#fbfcfcf2;border:1px solid #ffffffd9;box-shadow:0 14px 50px #24313b20;display:flex;flex-direction:column;backdrop-filter:blur(20px)}
   .panel-head{padding:25px 24px 17px;border-bottom:1px solid var(--line)}.eyebrow{font-size:9px;letter-spacing:2px;color:#9a6b52;font-weight:700}.panel h1{font:500 23px Georgia,"Noto Serif SC",serif;margin:9px 0 5px;letter-spacing:.2px}.panel-head p{font-size:11px;color:var(--muted);margin:0;line-height:1.6}
-  .tabs{display:grid;grid-template-columns:1fr 1fr;padding:16px 20px 0;gap:4px}.tab{border:0;background:transparent;padding:11px 6px;color:#849098;font-size:11px;cursor:pointer;border-bottom:2px solid transparent}.tab.active{color:var(--ink);border-color:var(--accent);font-weight:650}
+  .tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:16px 20px 0;gap:4px}.tab{border:0;background:transparent;padding:11px 4px;color:#849098;font-size:10px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}.tab.active{color:var(--ink);border-color:var(--accent);font-weight:650}
   .section-label{padding:14px 20px 9px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10px;letter-spacing:1px;color:#58636b}.catalog-tools{display:flex;align-items:center;gap:7px}.family-filter{max-width:112px;border:1px solid #dfe4e6;background:#fff;color:#637078;padding:5px 7px;font-size:9px;letter-spacing:0;outline:none}.count{white-space:nowrap;color:#a3abb0;font-size:9px}
   .products{padding:0 19px 10px;display:grid;grid-template-columns:1fr 1fr;gap:9px;overflow:auto}.product{appearance:none;border:1px solid #e0e5e7;padding:0;background:#fff;text-align:left;cursor:pointer;transition:.18s;position:relative;color:inherit}.product:hover{border-color:#a7b0b5;transform:translateY(-1px)}.product.selected{border:1.5px solid #ad6745;box-shadow:0 0 0 2px #ad67451a}.swatch{height:74px;position:relative;overflow:hidden;background:#e7e4dc}.swatch img{width:100%;height:100%;display:block;object-fit:cover}.swatch:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ffffff15,transparent 60%,#00000012);pointer-events:none}.product-name{font-size:10px;font-weight:600;padding:9px 9px 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.product-meta{font-size:9px;color:#929ba0;padding:0 9px 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.check{position:absolute;right:7px;top:7px;width:17px;height:17px;background:#fff;color:#a85f3d;border-radius:50%;display:grid;place-items:center;font-size:10px;opacity:0}.selected .check{opacity:1}
   .panel-foot{margin-top:auto;border-top:1px solid var(--line);padding:16px 22px 18px}.finish-label{font-size:9px;letter-spacing:1.4px;color:#7b858b;margin-bottom:10px}.finish-row{display:flex;gap:7px}.finish{flex:1;border:1px solid #dfe4e6;background:#fff;padding:9px 7px;font-size:9px;color:#69747b;cursor:pointer}.finish.active{border-color:#7e8d94;color:#29343b;background:#f1f4f4}.hint{font-size:9px;line-height:1.6;color:#8b969b;margin-top:12px}.reset{position:fixed;z-index:2;left:28px;bottom:26px;background:#f7f9f9dc;border:1px solid #ffffffb0;padding:11px 14px;font-size:10px;letter-spacing:.5px;color:#55636b;cursor:pointer;backdrop-filter:blur(10px)}.reset:hover{background:white}.tip{position:fixed;z-index:1;left:28px;top:88px;color:#f7fafb;text-shadow:0 1px 6px #23374688;font-size:10px;letter-spacing:.7px}.toast{position:fixed;z-index:5;left:50%;bottom:26px;transform:translate(-50%,14px);opacity:0;background:#1f2b31eF;color:#fff;padding:10px 15px;font-size:10px;transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
@@ -39,6 +39,17 @@
     .panel-foot{flex:none;margin-top:0;padding:7px 12px calc(8px + env(safe-area-inset-bottom))}.finish-label{margin-bottom:5px}.finish{padding:7px 4px;font-size:9px}
     .tip{top:63px;left:14px;font-size:9px}.reset{top:13px;right:14px;bottom:auto;left:auto;padding:8px 10px;font-size:9px}
   }
+  [hidden]{display:none!important}
+  .component-panel{flex:1;min-height:0;overflow:auto;padding:0 19px 12px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .component-row{padding:14px 0 13px;border-bottom:1px solid #e7ebec}
+  .component-row-title{display:flex;align-items:baseline;justify-content:space-between;font-size:11px;font-weight:650;color:#354149}
+  .component-row-title small{font-size:9px;font-weight:400;color:#98a1a6}
+  .component-color-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:9px}
+  .component-color-choice{min-width:0;display:flex;align-items:center;justify-content:center;gap:5px;padding:7px 3px;border:1px solid #dfe4e6;background:#fff;color:#5b666d;font-size:9px;cursor:pointer;white-space:nowrap}
+  .component-color-choice:hover{border-color:#aab4b9}
+  .component-color-choice.selected{border-color:#ad6745;box-shadow:0 0 0 1px #ad67451a;color:#27333a}
+  .component-color-dot{flex:0 0 13px;width:13px;height:13px;border:1px solid #aab0b2;border-radius:50%;background:var(--swatch)}
+  @media(max-width:700px){.component-panel{padding:0 14px 8px}.component-row{padding:10px 0}.component-color-options{gap:5px;margin-top:7px}.component-color-choice{padding:7px 2px;font-size:9px}.component-row-title{font-size:10px}}
 </style>
 </head>
 <body>
@@ -47,15 +58,26 @@
 <div class="tip">拖动旋转　·　右键平移　·　滚轮缩放</div>
 <button class="reset" id="resetView">⌖　恢复初始视角</button>
 <aside class="panel mobile-collapsed" id="showroomPanel">
-  <button class="mobile-panel-toggle" id="mobilePanelToggle" type="button" aria-expanded="false" aria-controls="products">
+  <button class="mobile-panel-toggle" id="mobilePanelToggle" type="button" aria-expanded="false" aria-controls="products componentPanel">
     <span class="mobile-panel-grip" aria-hidden="true"></span>
     <span class="mobile-panel-copy"><span class="mobile-panel-action" id="mobilePanelAction">打开材料选择</span><span class="mobile-panel-summary" id="mobilePanelSummary">主墙 · 净寂新款 · ORA178H7352R</span></span>
     <span class="mobile-panel-chevron" id="mobilePanelChevron" aria-hidden="true">⌃</span>
   </button>
   <div class="panel-head"><div class="eyebrow">MATERIAL COORDINATE</div><h1>外墙搭配方案</h1><p>选择产品，为建筑立面组合专属表情。</p></div>
-  <div class="tabs"><button class="tab active" data-zone="main">主墙产品选择</button><button class="tab" data-zone="accent">副墙产品选择</button></div>
-  <div class="section-label"><span id="zoneTitle">主墙 · MAIN WALL</span><div class="catalog-tools"><select class="family-filter" id="familyFilter" aria-label="按花色系列筛选"><option value="all">全部系列</option></select><span class="count" id="productCount"></span></div></div>
+  <div class="tabs"><button class="tab active" data-zone="main">主墙产品</button><button class="tab" data-zone="accent">副墙产品</button><button class="tab" data-zone="parts">部件颜色</button></div>
+  <div class="section-label" id="productSectionLabel"><span id="zoneTitle">主墙 · MAIN WALL</span><div class="catalog-tools"><select class="family-filter" id="familyFilter" aria-label="按花色系列筛选"><option value="all">全部系列</option></select><span class="count" id="productCount"></span></div></div>
   <div class="products" id="products"></div>
+  <section class="component-panel" id="componentPanel" hidden aria-label="屋顶、转角和窗框颜色">
+    <div class="component-row"><div class="component-row-title">屋顶 <small>ROOF</small></div><div class="component-color-options">
+      <button class="component-color-choice" data-role="roof" data-color="#f7f7f4" aria-label="屋顶：白色"><i class="component-color-dot" style="--swatch:#f7f7f4"></i>白色</button><button class="component-color-choice" data-role="roof" data-color="#c8cbcd" aria-label="屋顶：浅灰"><i class="component-color-dot" style="--swatch:#c8cbcd"></i>浅灰</button><button class="component-color-choice" data-role="roof" data-color="#55595c" aria-label="屋顶：深灰"><i class="component-color-dot" style="--swatch:#55595c"></i>深灰</button><button class="component-color-choice" data-role="roof" data-color="#17191a" aria-label="屋顶：黑色"><i class="component-color-dot" style="--swatch:#17191a"></i>黑色</button>
+    </div></div>
+    <div class="component-row"><div class="component-row-title">转角收边 <small>CORNER TRIM</small></div><div class="component-color-options">
+      <button class="component-color-choice" data-role="corner" data-color="#f7f7f4" aria-label="转角：白色"><i class="component-color-dot" style="--swatch:#f7f7f4"></i>白色</button><button class="component-color-choice" data-role="corner" data-color="#c8cbcd" aria-label="转角：浅灰"><i class="component-color-dot" style="--swatch:#c8cbcd"></i>浅灰</button><button class="component-color-choice" data-role="corner" data-color="#55595c" aria-label="转角：深灰"><i class="component-color-dot" style="--swatch:#55595c"></i>深灰</button><button class="component-color-choice" data-role="corner" data-color="#17191a" aria-label="转角：黑色"><i class="component-color-dot" style="--swatch:#17191a"></i>黑色</button>
+    </div></div>
+    <div class="component-row"><div class="component-row-title">窗框 <small>WINDOW FRAMES</small></div><div class="component-color-options">
+      <button class="component-color-choice" data-role="windowFrame" data-color="#f7f7f4" aria-label="窗框：白色"><i class="component-color-dot" style="--swatch:#f7f7f4"></i>白色</button><button class="component-color-choice" data-role="windowFrame" data-color="#c8cbcd" aria-label="窗框：浅灰"><i class="component-color-dot" style="--swatch:#c8cbcd"></i>浅灰</button><button class="component-color-choice" data-role="windowFrame" data-color="#55595c" aria-label="窗框：深灰"><i class="component-color-dot" style="--swatch:#55595c"></i>深灰</button><button class="component-color-choice" data-role="windowFrame" data-color="#17191a" aria-label="窗框：黑色"><i class="component-color-dot" style="--swatch:#17191a"></i>黑色</button>
+    </div></div>
+  </section>
   <div class="panel-foot"><div class="finish-label">光照预设　/　LIGHTING</div><div class="finish-row"><button class="finish active" data-light="day">柔和日光</button><button class="finish" data-light="warm">暖色傍晚</button><button class="finish" data-light="studio">中性棚拍</button></div><div class="hint">按 455 × 1010 mm 花色映射；完整板材为 455 × 3030 mm（长边重复 3 次）。请通过本地 HTTP 服务打开，以确保浏览器允许读取 Pattens 贴图。</div></div>
 </aside>
 <div class="toast" id="toast"></div>
@@ -131,7 +153,7 @@ function releaseInactiveMaterials(){
   for(const [id,material] of materialCache){if(!active.has(material)){material.userData.released=true;material.map?.dispose();material.dispose();materialCache.delete(id)}}
 }
 function makeBoxMaterial(color,roughness=.8,metalness=0){return new THREE.MeshStandardMaterial({color,roughness,metalness})}
-const trim=makeBoxMaterial('#c2c5c4',.42,.38), dark=makeBoxMaterial('#303b40',.55,.15), glass=new THREE.MeshPhysicalMaterial({color:'#7f9ca5',roughness:.14,metalness:.22,transparent:true,opacity:.78,side:THREE.DoubleSide});
+const trim=makeBoxMaterial('#c2c5c4',.42,.38), cornerTrim=makeBoxMaterial('#c2c5c4',.42,.38), windowFrame=makeBoxMaterial('#c2c5c4',.42,.38), dark=makeBoxMaterial('#303b40',.55,.15), glass=new THREE.MeshPhysicalMaterial({color:'#7f9ca5',roughness:.14,metalness:.22,transparent:true,opacity:.78,side:THREE.DoubleSide});
 
 // Create a facade patch with meter-based UV coordinates. Textures are sampled
 // in consistent physical scale even though the facade is split into many meshes.
@@ -165,8 +187,10 @@ const openings=[
   {type:'window',x0:1.05,x1:2.42,y0:4.15,y1:5.52}
 ];
 const frontZ=HOUSE.depth/2+.015, split=HOUSE.splitX;
+// Accent facade is set back exactly 1 m from the main facade, per the requested design.
+const ACCENT_SETBACK_M=1.0, accentFrontZ=frontZ-ACCENT_SETBACK_M;
 addFrontWallZone(mainWall,-HOUSE.width/2,split,openings.filter(o=>o.x0<split),materialSet.main,frontZ);
-addFrontWallZone(accentWall,split,HOUSE.width/2,openings.filter(o=>o.x1>split),materialSet.accent,frontZ+.012);
+addFrontWallZone(accentWall,split,HOUSE.width/2,openings.filter(o=>o.x1>split),materialSet.accent,accentFrontZ);
 // Recessed board joints: 455 mm courses and 3030 mm board lengths. Each groove
 // is split around doors/windows so the panel grid reads as installed cladding.
 const panelReveal=new THREE.MeshStandardMaterial({color:'#797b75',roughness:.92,transparent:true,opacity:.42,depthWrite:false});
@@ -182,7 +206,7 @@ function addCladdingJoints(parent,x0,x1,zoneOpenings,z){
   }
 }
 addCladdingJoints(mainWall,-HOUSE.width/2,split,openings.filter(o=>o.x0<split),frontZ);
-addCladdingJoints(accentWall,split,HOUSE.width/2,openings.filter(o=>o.x1>split),frontZ+.012);
+addCladdingJoints(accentWall,split,HOUSE.width/2,openings.filter(o=>o.x1>split),accentFrontZ);
 // Side and rear faces of the main wall shell, plus the shallow accent return.
 function sidePlane(parent,axis,coord,a0,a1,y0,y1,material,name){
   const geo=new THREE.PlaneGeometry(a1-a0,y1-y0);const pos=geo.attributes.position,uv=geo.attributes.uv;
@@ -194,27 +218,35 @@ function sidePlane(parent,axis,coord,a0,a1,y0,y1,material,name){
 }
 sidePlane(mainWall,'x',-HOUSE.width/2,-HOUSE.depth/2,HOUSE.depth/2,0,HOUSE.height,materialSet.main,'MainWall_LeftElevation');
 sidePlane(mainWall,'z',-HOUSE.depth/2,-HOUSE.width/2,HOUSE.width/2,0,HOUSE.height,materialSet.main,'MainWall_RearElevation');
-sidePlane(accentWall,'x',HOUSE.width/2,-HOUSE.depth/2,HOUSE.depth/2,0,HOUSE.height,materialSet.accent,'AccentWall_RightElevation');
+sidePlane(accentWall,'x',HOUSE.width/2,-HOUSE.depth/2,accentFrontZ,0,HOUSE.height,materialSet.accent,'AccentWall_RightElevation');
+// Exposed 1 m return wall closes the recess between the two facade planes.
+sidePlane(accentWall,'x',split,accentFrontZ,frontZ,0,HOUSE.height,materialSet.accent,'AccentRecessReturn');
 // Roof fascia / parapet cap, base plinth and corner trims.
-box(detailRoot,'FlatRoof',[HOUSE.width+.18,.16,HOUSE.depth+.18],[0,HOUSE.height+.04,0],makeBoxMaterial('#d9dad5',.72,.08));
+const roofSurface=makeBoxMaterial('#d9dad5',.72,.08);
+const mainRoofWidth=split+HOUSE.width/2+.18, accentRoofWidth=HOUSE.width/2-split+.18;
+const mainRoof=box(detailRoot,'FlatRoof_Main',[mainRoofWidth,.16,HOUSE.depth+.18],[(-HOUSE.width/2+split)/2,HOUSE.height+.04,0],roofSurface);mainRoof.userData.colorRole='roof';
+const accentRoof=box(detailRoot,'FlatRoof_Accent',[accentRoofWidth,.16,accentFrontZ+HOUSE.depth/2+.18],[(split+HOUSE.width/2)/2,HOUSE.height+.04,(-HOUSE.depth/2+accentFrontZ)/2],makeBoxMaterial('#d9dad5',.72,.08));accentRoof.userData.colorRole='roof';
 box(detailRoot,'FoundationCourse',[HOUSE.width+.12,.23,HOUSE.depth+.12],[0,.115,0],makeBoxMaterial('#777a77',.8));
-box(detailRoot,'AccentVerticalReveal',[.045,HOUSE.height,.035],[split, HOUSE.height/2,frontZ+.018],trim,false);
+const mainReveal=box(detailRoot,'AccentVerticalReveal',[.045,HOUSE.height,.035],[split, HOUSE.height/2,frontZ+.018],cornerTrim,false);mainReveal.userData.colorRole='corner';
+const recessedCorner=box(detailRoot,'AccentRecessCorner',[.065,HOUSE.height,.065],[split,HOUSE.height/2,accentFrontZ+.035],cornerTrim,false);recessedCorner.userData.colorRole='corner';
 // A restrained front fascia and metal sill line.
 const roofMetal=makeBoxMaterial('#43484a',.38,.5);
-box(detailRoot,'FrontRoofEdge',[HOUSE.width+.12,.055,.075],[0,HOUSE.height-.035,frontZ+.085],roofMetal,false);
-box(detailRoot,'RightRoofEdge',[.075,.055,HOUSE.depth+.12],[HOUSE.width/2+.055,HOUSE.height-.035,0],roofMetal,false);
-box(detailRoot,'FacadeCorner_L',[.065,HOUSE.height,.065],[-HOUSE.width/2+.035,HOUSE.height/2,frontZ+.035],trim,false);
-box(detailRoot,'FacadeCorner_R',[.065,HOUSE.height,.065],[HOUSE.width/2-.035,HOUSE.height/2,frontZ+.035],trim,false);
+const mainRoofEdge=box(detailRoot,'FrontRoofEdge_Main',[mainRoofWidth-.06,.055,.075],[(-HOUSE.width/2+split)/2,HOUSE.height-.035,frontZ+.085],roofMetal,false);mainRoofEdge.userData.colorRole='roof';
+const accentRoofEdge=box(detailRoot,'FrontRoofEdge_Accent',[accentRoofWidth-.06,.055,.075],[(split+HOUSE.width/2)/2,HOUSE.height-.035,accentFrontZ+.085],roofMetal,false);accentRoofEdge.userData.colorRole='roof';
+const roofStepEdge=box(detailRoot,'RoofStepEdge',[.075,.055,ACCENT_SETBACK_M],[split,HOUSE.height-.035,(frontZ+accentFrontZ)/2],roofMetal,false);roofStepEdge.userData.colorRole='roof';
+const rightRoofEdge=box(detailRoot,'RightRoofEdge',[.075,.055,accentFrontZ+HOUSE.depth/2+.12],[HOUSE.width/2+.055,HOUSE.height-.035,(-HOUSE.depth/2+accentFrontZ)/2],roofMetal,false);rightRoofEdge.userData.colorRole='roof';
+const leftCorner=box(detailRoot,'FacadeCorner_L',[.065,HOUSE.height,.065],[-HOUSE.width/2+.035,HOUSE.height/2,frontZ+.035],cornerTrim,false);leftCorner.userData.colorRole='corner';
+const rightCorner=box(detailRoot,'FacadeCorner_R',[.065,HOUSE.height,.065],[HOUSE.width/2-.035,HOUSE.height/2,accentFrontZ+.035],cornerTrim,false);rightCorner.userData.colorRole='corner';
 
 // Windows: dark recessed reveal, glass, silver frames, mullions and projecting sill.
 function addWindow(o,index){
-  const g=new THREE.Group();g.name=`Window_${index}`;detailRoot.add(g);const w=o.x1-o.x0,h=o.y1-o.y0,cx=(o.x0+o.x1)/2,cy=(o.y0+o.y1)/2,z=frontZ+.045;
+  const g=new THREE.Group();g.name=`Window_${index}`;detailRoot.add(g);const w=o.x1-o.x0,h=o.y1-o.y0,cx=(o.x0+o.x1)/2,cy=(o.y0+o.y1)/2;
+  // Windows inherit the depth of their wall zone so they remain seated in the recessed facade.
+  const z=(cx>split?accentFrontZ:frontZ)+.045;
   box(g,'WindowRecess',[w+.08,h+.08,.08],[cx,cy,z-.09],dark,false);
   const pane=new THREE.Mesh(new THREE.PlaneGeometry(w-.08,h-.08),glass);pane.name='Glazing';pane.position.set(cx,cy,z-.035);g.add(pane);
   const frame=.055;
-  box(g,'Frame_Left',[frame,h+.1,.075],[o.x0-frame/2,cy,z],trim,false);box(g,'Frame_Right',[frame,h+.1,.075],[o.x1+frame/2,cy,z],trim,false);
-  box(g,'Frame_Top',[w+.1,frame,.075],[cx,o.y1+frame/2,z],trim,false);box(g,'Frame_Sill',[w+.12,frame,.09],[cx,o.y0-frame/2,z+.015],trim,false);
-  box(g,'Mullion_Vertical',[.035,h-.04,.045],[cx,cy,z+.016],trim,false);box(g,'Mullion_Horizontal',[w-.035,.035,.045],[cx,cy,z+.02],trim,false);
+  for(const [name,size,pos] of [['Frame_Left',[frame,h+.1,.075],[o.x0-frame/2,cy,z]],['Frame_Right',[frame,h+.1,.075],[o.x1+frame/2,cy,z]],['Frame_Top',[w+.1,frame,.075],[cx,o.y1+frame/2,z]],['Frame_Sill',[w+.12,frame,.09],[cx,o.y0-frame/2,z+.015]],['Mullion_Vertical',[.035,h-.04,.045],[cx,cy,z+.016]],['Mullion_Horizontal',[w-.035,.035,.045],[cx,cy,z+.02]]]){const part=box(g,name,size,pos,windowFrame,false);part.userData.colorRole='windowFrame'}
   box(g,'ExteriorSill',[w+.2,.055,.28],[cx,o.y0-.04,z+.12],makeBoxMaterial('#aeb2b0',.36,.24),false);
 }
 openings.filter(o=>o.type==='window').forEach((o,i)=>addWindow(o,i+1));
@@ -285,6 +317,7 @@ const mobilePanelChevron=document.querySelector('#mobilePanelChevron');
 function updateMobilePanelSummary(){const p=activeProduct[activeZone];mobilePanelSummary.textContent=`${activeZone==='main'?'主墙':'副墙'} · ${p.family} · ${p.code}`}
 mobilePanelToggle.addEventListener('click',()=>{const expanded=showroomPanel.classList.toggle('mobile-collapsed')===false;mobilePanelToggle.setAttribute('aria-expanded',String(expanded));mobilePanelAction.textContent=expanded?'收起材料选择':'打开材料选择';mobilePanelChevron.textContent=expanded?'⌄':'⌃'});
 const list=document.querySelector('#products');const zoneTitle=document.querySelector('#zoneTitle');
+const productSectionLabel=document.querySelector('#productSectionLabel');const componentPanel=document.querySelector('#componentPanel');
 const familyFilter=document.querySelector('#familyFilter');const productCount=document.querySelector('#productCount');
 for(const family of [...new Set(products.map(p=>p.family))].sort((a,b)=>a.localeCompare(b,'zh-CN'))){const option=document.createElement('option');option.value=family;option.textContent=family;familyFilter.appendChild(option)}
 familyFilter.addEventListener('change',renderProducts);
@@ -297,7 +330,18 @@ function selectProduct(p){activeProduct[activeZone]=p;updateMobilePanelSummary()
   const imported=window.importedWallZones?.[activeZone];if(imported) imported.forEach(mesh=>mesh.material=material);
   releaseInactiveMaterials();renderProducts();toast(`${activeZone==='main'?'主墙':'副墙'}已应用：${p.family} · ${p.code}`);
 }
-document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t===tab));activeZone=tab.dataset.zone;zoneTitle.textContent=activeZone==='main'?'主墙 · MAIN WALL':'副墙 · ACCENT WALL';updateMobilePanelSummary();renderProducts()}));
+document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t===tab));
+  if(tab.dataset.zone==='parts'){productSectionLabel.hidden=true;list.hidden=true;componentPanel.hidden=false;return}
+  activeZone=tab.dataset.zone;productSectionLabel.hidden=false;list.hidden=false;componentPanel.hidden=true;
+  zoneTitle.textContent=activeZone==='main'?'主墙 · MAIN WALL':'副墙 · ACCENT WALL';updateMobilePanelSummary();renderProducts();
+}));
+document.querySelectorAll('.component-color-choice').forEach(button=>button.addEventListener('click',()=>{
+  const {role,color}=button.dataset;
+  scene.traverse(node=>{if(!node.isMesh||node.userData.colorRole!==role)return;const mats=Array.isArray(node.material)?node.material:[node.material];for(const mat of mats)if(mat?.color)mat.color.set(color)});
+  document.querySelectorAll(`.component-color-choice[data-role="${role}"]`).forEach(choice=>choice.classList.toggle('selected',choice===button));
+  const roleName={roof:'屋顶',corner:'转角收边',windowFrame:'窗框'}[role];const colorName={"#f7f7f4":'白色',"#c8cbcd":'浅灰',"#55595c":'深灰',"#17191a":'黑色'}[color];toast(`${roleName}已调整为${colorName}`);
+}));
 document.querySelectorAll('.finish').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.finish').forEach(b=>b.classList.toggle('active',b===btn));const mode=btn.dataset.light;if(mode==='day'){scene.background.set('#dce5eb');sun.color.set('#fff3df');sun.intensity=3.2;fill.intensity=1.25;renderer.toneMappingExposure=1.05}else if(mode==='warm'){scene.background.set('#e8d4bc');sun.color.set('#ffd5a2');sun.intensity=3.8;fill.intensity=.72;renderer.toneMappingExposure=1.08}else{scene.background.set('#d5dadd');sun.color.set('#ffffff');sun.intensity=2.4;fill.intensity=1.65;renderer.toneMappingExposure=.98}}));
 function toast(message){const el=document.querySelector('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),1700)}
 if(location.protocol==='file:')setTimeout(()=>toast('检测到 file:// 打开方式：请用本地 HTTP 服务打开，避免贴图被浏览器拦截。'),900);
