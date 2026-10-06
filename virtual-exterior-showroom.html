@@ -94,11 +94,10 @@ function makeMaterial(product){
   if(materialCache.has(product.id))return materialCache.get(product.id);
   const texture=textureLoader.load(product.url,undefined,undefined,error=>console.error('花色图片加载失败:',product.url,error));
   texture.colorSpace=THREE.SRGBColorSpace;texture.wrapS=THREE.RepeatWrapping;texture.wrapT=THREE.RepeatWrapping;
-  // The mosaic sources are now cropped directly from the original product
-  // photos to show four block rows per 455 mm course. Keep their physical
-  // 1010 × 455 mm scale; other patterns retain the requested half-size detail.
-  const textureDetailScale=product.family==='马赛克'?1:2;
-  texture.repeat.set(textureDetailScale/SOURCE_TILE_LENGTH_M,textureDetailScale/BOARD_COURSE_M);texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+  // Every _sourceTiles image is now cropped from its original product photo
+  // at the real 1010 × 455 mm source-module aspect ratio. Map one tile per
+  // source module and repeat it three times along each 3030 mm board.
+  texture.repeat.set(1/SOURCE_TILE_LENGTH_M,1/BOARD_COURSE_M);texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
   const material=new THREE.MeshStandardMaterial({color:'#ffffff',map:texture,roughness:.8,metalness:.015});
   material.userData.productId=product.id;materialCache.set(product.id,material);return material;
 }
