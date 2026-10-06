@@ -94,11 +94,11 @@ function makeMaterial(product){
   if(materialCache.has(product.id))return materialCache.get(product.id);
   const texture=textureLoader.load(product.url,undefined,undefined,error=>console.error('花色图片加载失败:',product.url,error));
   texture.colorSpace=THREE.SRGBColorSpace;texture.wrapS=THREE.RepeatWrapping;texture.wrapT=THREE.RepeatWrapping;
-  // Material-only detail scale: double texture frequency so each visible
-  // pattern feature is half-size. Board geometry and joint spacing stay
-  // 3030 mm horizontally and 455 mm vertically.
-  const TEXTURE_DETAIL_SCALE=2;
-  texture.repeat.set(TEXTURE_DETAIL_SCALE/SOURCE_TILE_LENGTH_M,TEXTURE_DETAIL_SCALE/BOARD_COURSE_M);texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+  // The mosaic sources are now cropped directly from the original product
+  // photos to show four block rows per 455 mm course. Keep their physical
+  // 1010 × 455 mm scale; other patterns retain the requested half-size detail.
+  const textureDetailScale=product.family==='马赛克'?1:2;
+  texture.repeat.set(textureDetailScale/SOURCE_TILE_LENGTH_M,textureDetailScale/BOARD_COURSE_M);texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
   const material=new THREE.MeshStandardMaterial({color:'#ffffff',map:texture,roughness:.8,metalness:.015});
   material.userData.productId=product.id;materialCache.set(product.id,material);return material;
 }
